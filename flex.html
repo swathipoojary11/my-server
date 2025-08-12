@@ -1,0 +1,208 @@
+<html>
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width:device-width">
+    <title> cafe orders</title>
+    <style>
+        .main{
+            background: white;
+            border-radius: 10px;
+            border-width: 20px;
+            border-color: black;
+           height: 500px;
+            width: 90%;
+
+            display: flex;
+            justify-content: space-evenly;
+            
+
+        }
+        .left{
+            background-color: wheat;
+            height: 60%;
+           width:  30%;
+        display: flex;
+        align-items: center;
+        align-self: center;
+            justify-content: center;
+        }
+
+        .left img {
+            border-radius: 10px;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+
+        .right{
+            
+            height: 80%;
+            width: 40%;
+            border: 3px solid black;
+            display: flex;
+            border-radius: 10px;
+            box-shadow: inset;
+            align-items: center;
+             align-self: center;
+            justify-content: center;
+        }
+        .right h1 {
+            color: rgb(20, 19, 16);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input,select{
+    
+            margin-bottom: 15px;
+            font-size: 16px;
+            border: 2px solid rgb(49, 48, 48);
+            border-radius: 1px;
+            outline: none;
+        }
+        .form
+        {
+            text-align: center;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background:scroll;
+            background-color: #BCA88D;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+           button {
+            background-color: rgb(238, 58, 14);
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+    <body>
+    <div class="main">
+        <div class="left">
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNvTU9bfNZF_LlrzotrfQs9xdezdRAenFspw&s"
+                alt="Cafe Image"
+                height="150"
+                width="200"
+            />
+        </div>
+
+        <div class="right">
+<form id="foodorder" class="form">
+                <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Place Order</h1>
+<br>
+<br>
+                <input id="item" type="text" placeholder="Your item" name="your_item" required />
+<br>
+<br>
+
+                <input id="phone" type="tel"  pattern="[6-9]{1}[0-9]{9}" placeholder="Your phone number" name="phone number" required />
+                <br>
+                <br>
+                <input  id="quantity"       type="number" placeholder="Quantity" name="quantity" required />
+
+              
+                   
+                
+<br>
+<br>
+                <input id="location"       type="text" placeholder="location" name="location" required />
+
+                <select id="locationSelect" name="locationSelect" required>
+                    <option value="" disabled selected>Select state</option>
+                    <option value="ahmedabad">Ahmedabad</option>
+                    <option value="bihar">Bihar</option>
+                    <option value="chandigarh">Chandigarh</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="gujarat">Gujarat</option>
+                    <option value="hyderabad">Hyderabad</option>
+                    <option value="india">India</option>
+                    <option value="jharkhand">Jharkhand</option>
+                    <option value="karnataka">Karnataka</option>
+                    <option value="lucknow">Lucknow</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="nepal">Nepal</option>
+                    <option value="pune">Pune</option>
+                    <option value="rajasthan">Rajasthan</option>
+                </select>
+<br>
+<br>
+<label>
+  <input type="checkbox" id="checkbox" />
+  I accept the terms and conditions
+</label>
+<br><br>
+
+                <button id="order"type="submit">Order now</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+         const form = document.getElementById('foodorder');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // prevent actual form submission
+
+            const item = document.getElementById('item').value;
+            const quantity = document.getElementById('quantity').value;
+            const location = document.getElementById('location').value;
+            const locationSelect = document.getElementById('locationSelect').value;
+            const phone = document.getElementById('phone').value;
+            const check = document.getElementById('checkbox').checked;
+if (!check) {
+  alert("Please accept the terms and conditions");
+  return;
+}
+
+           
+            if (item === "" || quantity === "" || phone === "" || locationSelect === "") {
+                alert("Please fill all the required fields");
+                return;
+            }
+
+            // You can add further validations here if needed
+
+            alert("Order placed successfully!");
+            window.location.href = "myserver.html"
+
+            // Redirect or reset form as needed
+            // window.location.href = "flex.html";
+            form.reset();
+        });
+   /*function input()
+   {
+        var item = document.getElementById("item").value;
+        var quantity = document.getElementById("quantity").value;
+        var location = document.getElementById("location").value;
+        var phone = document.getElementById("ph").value;
+        var check = document.getElementById("checkbox").checked;
+        console.log(`item ${item}`);
+        console.log(`quantity ${quantity}`);
+        console.log(`location ${location}`);
+        console.log(`phone ${phone}`);
+        if(!check){
+            alert("Please accept the terms and conditions");
+        }
+        else {
+            if(items == "" || quantity == "" || phone == "" || location == ""){
+                alert("Please fill all the fields");
+            } else {
+                alert("order placed sucessfully");
+                window.location.href = "flex.html";
+            }
+        }
+    }*/
+
+  </script>
+</html>
